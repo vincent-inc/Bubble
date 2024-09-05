@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bubble-dev-deployment
+  namespace: bubble-dev
+  labels:
+    app: bubble-dev
+spec:
+  selector:
+    matchLabels:
+      app: bubble-dev
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: bubble-dev
+    spec:
+      containers:
+      - name: bubble-dev
+        image: vincentbuiwork/bubble:dev
+        imagePullPolicy: Always
+        resources:
+          requests:
+            memory: 500M
+          limits:
+            memory: 1Gi
+        livenessProbe:
+          tcpSocket:
+            port: 83
+          initialDelaySeconds: 5
+          timeoutSeconds: 5
+          successThreshold: 1
+          failureThreshold: 3
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /_status/healthz
+            port: 83
+          initialDelaySeconds: 5
+          timeoutSeconds: 2
+          successThreshold: 1
+          failureThreshold: 3
+          periodSeconds: 10
+        ports:
+        - containerPort: 83
+      restartPolicy: Always

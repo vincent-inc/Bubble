@@ -1,0 +1,80 @@
+[
+	{
+		"configId": 1,
+		"configName": "java with git hook",
+		"path": "/vincent-services/v-eco",
+		"jobName": "bubble-dev",
+		"replaceMap": {
+			"projectUrl": "https://github.com/vincent-inc/Bubble",
+			"displayName": "bubble Dev",
+			"upperCaseServiceName": "BUBBLE-DEV",
+			"environment": "dev",
+			"dockerImage": "bubble"
+		}
+	},
+	{
+		"configId": 2,
+		"configName": "k8s",
+		"path": "/vincent-services/v-eco",
+		"jobName": "bubble-dev-k8s",
+		"replaceMap": {
+			"projectUrl": "https://github.com/vincent-inc/Bubble",
+			"displayName": "bubble Dev k8s",
+			"triggerAfterJobName": "bubble-dev",
+			"k8sServiceFolderName": "bubble",
+			"environment": "dev"
+		}
+	},
+	{
+		"configId": 3,
+		"configName": "java",
+		"path": "/vincent-services/v-eco",
+		"jobName": "bubble-stage",
+		"replaceMap": {
+			"projectUrl": "https://github.com/vincent-inc/Bubble",
+			"displayName": "bubble Stage",
+			"upperCaseServiceName": "BUBBLE-STAGE",
+			"environment": "stage",
+			"dockerImage": "bubble"
+		}
+	},
+	{
+		"configId": 2,
+		"configName": "k8s",
+		"path": "/vincent-services/v-eco",
+		"jobName": "bubble-stage-k8s",
+		"replaceMap": {
+			"projectUrl": "https://github.com/vincent-inc/Bubble",
+			"displayName": "bubble Stage k8s",
+			"triggerAfterJobName": "bubble-stage",
+			"k8sServiceFolderName": "bubble",
+			"environment": "stage"
+		}
+	},
+	{
+		"configId": 3,
+		"configName": "java",
+		"path": "/vincent-services/v-eco",
+		"jobName": "bubble-prod",
+		"replaceMap": {
+			"projectUrl": "https://github.com/vincent-inc/Bubble",
+			"displayName": "bubble Prod",
+			"upperCaseServiceName": "BUBBLE-PROD",
+			"environment": "prod",
+			"dockerImage": "bubble"
+		}
+	},
+	{
+		"configId": 2,
+		"configName": "k8s",
+		"path": "/vincent-services/v-eco",
+		"jobName": "bubble-prod-k8s",
+		"replaceMap": {
+			"projectUrl": "https://github.com/vincent-inc/Bubble",
+			"displayName": "bubble Prod k8s",
+			"triggerAfterJobName": "bubble-prod",
+			"k8sServiceFolderName": "bubble",
+			"environment": "prod"
+		}
+	}
+]
